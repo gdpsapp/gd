@@ -1,0 +1,27 @@
+[package]
+name = "gd-entities"
+version.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+description = "GD entities."
+documentation = "https://docs.rs/gd-entities"
+readme = "README.md"
+repository.workspace = true
+homepage.workspace = true
+keywords = ["gd", "entity"]
+
+[dependencies.bon]
+workspace = true
+
+[dependencies.gd-core]
+workspace = true
+
+[dependencies.serde]
+workspace = true
+
+[dependencies.ownership]
+workspace = true
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]

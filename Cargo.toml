@@ -1,62 +1,160 @@
-[package]
-name = "gd"
-version = "0.0.0"
-authors = ["GDPSApp <hello@gdps.app>"]
-edition = "2021"
-description = "Geometry Dash API wrapper written in Rust."
-documentation = "https://docs.rs/gd"
-readme = "README.md"
-repository = "https://github.com/GDPSApp/gd"
-license = "MIT"
-keywords = ["gd", "api"]
-categories = ["parser-implementations"]
+[workspace]
+members = ["crates/*"]
+resolver = "3"
 
-[dependencies.aes]
+[workspace.package]
+version = "0.0.0"
+authors = ["GDPS <hello@gdps.app>"]
+rust-version = "1.91"
+edition = "2024"
+repository = "https://github.com/gdpsapp/gd"
+homepage = "https://gdps.app/"
+license = "MIT"
+
+[workspace.dependencies.aes]
 version = "0.8.4"
 
-[dependencies.base64]
+[workspace.dependencies.base64]
 version = "0.22.1"
 
-[dependencies.bon]
-version = "2.3.0"
+[workspace.dependencies.bon]
+version = "3.8.1"
 
-[dependencies.capnp]
-version = "0.20.0"
+[workspace.dependencies.capnp]
+version = "0.23.0"
 
-[dependencies.dtoa]
-version = "1.0.9"
+[workspace.dependencies.capnpc]
+version = "0.23.2"
 
-[dependencies.ecb]
+[workspace.dependencies.dtoa]
+version = "1.0.10"
+
+[workspace.dependencies.ecb]
 version = "0.1.2"
 features = ["std"]
 
-[dependencies.flate2]
-version = "1.0.33"
+[workspace.dependencies.flate2]
+version = "1.1.5"
 features = ["zlib"]
 
-[dependencies.itoa]
-version = "1.0.11"
+[workspace.dependencies.itoa]
+version = "1.0.15"
 
-[dependencies.miette]
-version = "7.2.0"
+[workspace.dependencies.miette]
+version = "7.6.0"
 features = ["fancy"]
 
-[dependencies.reqwest]
-version = "0.12.7"
-
-[dependencies.serde]
-version = "1.0.210"
+[workspace.dependencies.ownership]
+version = "0.2.4"
 features = ["derive"]
 
-[dependencies.sha1]
+[workspace.dependencies.reqwest]
+version = "0.12.24"
+default-features = false
+features = ["charset", "http2", "rustls-tls", "system-proxy"]
+
+[workspace.dependencies.serde]
+version = "1.0.228"
+features = ["derive"]
+
+[workspace.dependencies.sha1]
 version = "0.10.6"
 
-[dependencies.thiserror]
-version = "1.0.63"
+[workspace.dependencies.thiserror]
+version = "2.0.17"
 
-[dependencies.tokio]
-version = "1.40.0"
+[workspace.dependencies.tokio]
+version = "1.48.0"
 features = ["full"]
 
-[dependencies.xor-cipher]
-version = "4.0.0"
+[workspace.dependencies.xor-cipher]
+version = "4.0.1"
+
+[workspace.dependencies.gd-core]
+path = "crates/gd-core"
+version = "0.0.0"
+
+[workspace.dependencies.gd-crypto]
+path = "crates/gd-crypto"
+version = "0.0.0"
+
+[workspace.dependencies.gd-entities]
+path = "crates/gd-entities"
+version = "0.0.0"
+
+[workspace.dependencies.gd-enums]
+path = "crates/gd-enums"
+version = "0.0.0"
+
+[workspace.dependencies.gd-images]
+path = "crates/gd-images"
+version = "0.0.0"
+
+[workspace.dependencies.gd-internals]
+path = "crates/gd-internals"
+version = "0.0.0"
+
+[workspace.dependencies.gd-schema]
+path = "crates/gd-schema"
+version = "0.0.0"
+
+[package]
+name = "gd"
+version.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+description = "Geometry Dash API wrapper written in Rust."
+documentation = "https://docs.rs/gd"
+readme = "README.md"
+repository.workspace = true
+homepage.workspace = true
+license.workspace = true
+keywords = ["gd", "api"]
+
+[dependencies.gd-core]
+workspace = true
+
+[dependencies.gd-crypto]
+workspace = true
+optional = true
+
+[dependencies.gd-entities]
+workspace = true
+optional = true
+
+[dependencies.gd-enums]
+workspace = true
+optional = true
+
+[dependencies.gd-images]
+workspace = true
+optional = true
+
+[dependencies.gd-internals]
+workspace = true
+optional = true
+
+[dependencies.gd-schema]
+workspace = true
+optional = true
+
+[features]
+default = ["full"]
+full = [
+    "crypto",
+    "entities",
+    "enums",
+    "images",
+    "internals",
+    "schema",
+]
+crypto = ["dep:gd-crypto"]
+entities = ["dep:gd-entities"]
+enums = ["dep:gd-enums"]
+images = ["dep:gd-images"]
+internals = ["dep:gd-internals"]
+schema = ["dep:gd-schema"]
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]

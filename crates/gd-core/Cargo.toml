@@ -1,0 +1,24 @@
+[package]
+name = "gd-core"
+version.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+description = "GD core functionality."
+documentation = "https://docs.rs/gd-core"
+readme = "README.md"
+repository.workspace = true
+homepage.workspace = true
+keywords = ["gd", "core"]
+
+[dependencies.ownership]
+workspace = true
+
+[dependencies.serde]
+workspace = true
+
+[dependencies.thiserror]
+workspace = true
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]

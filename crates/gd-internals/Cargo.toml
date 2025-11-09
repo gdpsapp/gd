@@ -1,0 +1,21 @@
+[package]
+name = "gd-internals"
+version.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+description = "GD internals."
+documentation = "https://docs.rs/gd-internals"
+readme = "README.md"
+repository.workspace = true
+homepage.workspace = true
+keywords = ["gd", "internal"]
+
+[dependencies.bon]
+workspace = true
+
+[dependencies.reqwest]
+workspace = true
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]

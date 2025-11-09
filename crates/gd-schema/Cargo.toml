@@ -1,0 +1,30 @@
+[package]
+name = "gd-schema"
+version.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+description = "GD schema."
+documentation = "https://docs.rs/gd-schema"
+readme = "README.md"
+repository.workspace = true
+homepage.workspace = true
+keywords = ["gd", "schema"]
+
+[dependencies.capnp]
+workspace = true
+
+[dependencies.gd-core]
+workspace = true
+
+[dependencies.gd-entities]
+workspace = true
+
+[dependencies.thiserror]
+workspace = true
+
+[build-dependencies.capnpc]
+workspace = true
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]

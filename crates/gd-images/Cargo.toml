@@ -1,0 +1,15 @@
+[package]
+name = "gd-images"
+version.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+description = "GD image manipulation."
+documentation = "https://docs.rs/gd-images"
+readme = "README.md"
+repository.workspace = true
+homepage.workspace = true
+keywords = ["gd", "image"]
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]

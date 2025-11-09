@@ -1,15 +1,26 @@
-// #![forbid(unsafe_code)]
+#[doc(inline)]
+pub use gd_core as core;
 
-pub mod auth;
-pub mod client;
-pub mod crypto;
-pub mod entities;
-pub mod internals;
-pub mod primitives;
-pub mod thunk;
+#[cfg(feature = "crypto")]
+#[doc(inline)]
+pub use gd_crypto as crypto;
 
-mod cow;
+#[cfg(feature = "entities")]
+#[doc(inline)]
+pub use gd_entities as entities;
 
-pub use client::{Authenticated, AuthenticatedState, Client, Simple, SimpleState};
-pub use entities::{Artist, Song, SongReference};
-pub use primitives::id::Id;
+#[cfg(feature = "enums")]
+#[doc(inline)]
+pub use gd_enums as enums;
+
+#[cfg(feature = "images")]
+#[doc(inline)]
+pub use gd_images as images;
+
+#[cfg(feature = "internals")]
+#[doc(inline)]
+pub use gd_internals as internals;
+
+#[cfg(feature = "schema")]
+#[doc(inline)]
+pub use gd_schema as schema;

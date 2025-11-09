@@ -1,0 +1,15 @@
+[package]
+name = "gd-enums"
+version.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+description = "GD enumerations."
+documentation = "https://docs.rs/gd-enums"
+readme = "README.md"
+repository.workspace = true
+homepage.workspace = true
+keywords = ["gd", "enum", "enumeration"]
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]

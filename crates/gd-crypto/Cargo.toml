@@ -1,0 +1,15 @@
+[package]
+name = "gd-crypto"
+version.workspace = true
+authors.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+description = "Cryptography used in GD."
+documentation = "https://docs.rs/gd-crypto"
+readme = "README.md"
+repository.workspace = true
+homepage.workspace = true
+keywords = ["gd", "crypto"]
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]
