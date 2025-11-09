@@ -60,6 +60,7 @@ impl Percent {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, IntoOwned)]
 pub enum Record {
     Percent(Percent),
 }
