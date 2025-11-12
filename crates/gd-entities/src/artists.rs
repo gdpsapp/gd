@@ -6,10 +6,9 @@ use ownership::IntoOwned;
 
 use crate::entities::Entity;
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default, Builder, IntoOwned)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Default, Builder, IntoOwned)]
 pub struct Artist<'a> {
     pub id: ArtistId,
-    #[builder(into)]
     pub name: Str<'a>,
     pub verified: bool,
 }

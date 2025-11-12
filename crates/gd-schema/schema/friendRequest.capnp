@@ -1,9 +1,9 @@
 @0xafcfecace976de47;
 
-using import "aliases/id.capnp".Id;
-using import "aliases/enum.capnp".EnumValue;
-using import "aliases/time.capnp".Timestamp;
+using import "id.capnp".Id;
+using import "time.capnp".Timestamp;
 using import "user.capnp".UserReference;
+using import "values.capnp".EnumValue;
 
 struct FriendRequest {
     id @0 :Id;

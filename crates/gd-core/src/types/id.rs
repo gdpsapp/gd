@@ -1,6 +1,7 @@
 use std::{hash::Hash, marker::PhantomData};
 
 use ownership::IntoOwned;
+use serde::{Serialize, de::DeserializeOwned};
 
 mod sealed {
     pub trait Sealed {}
@@ -29,7 +30,7 @@ impl Type for Typed {
     type Inverse = Untyped;
 }
 
-pub trait Id: Copy + Ord + Hash + Default + IntoOwned {
+pub trait Id: Copy + Ord + Hash + Default + Serialize + DeserializeOwned + IntoOwned {
     type Type: Type;
 }
 
@@ -46,8 +47,15 @@ pub trait CustomId: TypedId {
     fn get(self) -> Self::Untyped;
 }
 
-custom_id! {
+custom_id!(
+    // large
     AccountId => u64,
     ArtistId => u64,
     UserId => u64,
-}
+    // small
+    TimelyId => u16,
+    ColorId => u16,
+    IconId => u8,
+    LongIconId => u16,
+    RoleId => u8,
+);

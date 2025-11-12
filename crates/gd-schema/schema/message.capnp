@@ -1,10 +1,10 @@
 @0xc116a4429777f6d7;
 
-using import "aliases/enum.capnp".EnumValue;
-using import "aliases/id.capnp".Id;
-using import "aliases/time.capnp".Timestamp;
+using import "id.capnp".Id;
 using import "option.capnp".Option;
+using import "time.capnp".Timestamp;
 using import "user.capnp".UserReference;
+using import "values.capnp".EnumValue;
 
 struct Message {
     id @0 :Id;

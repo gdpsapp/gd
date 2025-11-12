@@ -1,12 +1,12 @@
 @0x94465e9a2de58adc;
 
-using import "../aliases/enum.capnp".EnumValue;
-using import "../aliases/time.capnp".Timestamp;
-using import "aliases/id.capnp".VisualId;
+using import "../time.capnp".Timestamp;
+using import "../values.capnp".EnumValue;
 using import "colorChannel.capnp".ColorChannel;
 using import "guidelines.capnp".Guidelines;
+using import "id.capnp".VisualId;
 
-struct Header {
+struct Metadata {
     gameMode @0 :EnumValue;
     miniMode @1 :Bool;
     speed @2 :EnumValue;

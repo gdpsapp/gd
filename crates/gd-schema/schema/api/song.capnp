@@ -1,10 +1,10 @@
 @0xb01864dba3141a3b;
 
-using import "../aliases/id.capnp".Id;
-using import "../aliases/size.capnp".Size;
+using import "../id.capnp".Id;
 using import "../option.capnp".Option;
-using import "aliases/priority.capnp".Priority;
+using import "../size.capnp".Size;
 using import "artist.capnp".ArtistApi;
+using import "priority.capnp".Priority;
 
 struct SongApi {
     id @0 :Id;

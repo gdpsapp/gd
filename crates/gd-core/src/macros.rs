@@ -1,10 +1,13 @@
 #[doc(hidden)]
 pub mod import {
+    pub use std::fmt;
+
     pub use ownership::IntoOwned;
+    pub use serde::{Deserialize, Serialize};
 }
 
 #[macro_export]
-macro_rules! untyped_id {
+macro_rules! impl_untyped_id {
     ($($type: ty),+ $(,)?) => {
         $(
             impl $crate::types::id::Id for $type {
@@ -14,10 +17,10 @@ macro_rules! untyped_id {
     };
 }
 
-untyped_id!(u8, u16, u32, u64, u128);
+impl_untyped_id!(u8, u16, u32, u64, u128);
 
 #[macro_export]
-macro_rules! typed_id {
+macro_rules! impl_typed_id {
     ($($type: ty),+ $(,)?) => {
         $(
             impl $crate::types::id::Id for $type {
@@ -28,8 +31,8 @@ macro_rules! typed_id {
 }
 
 #[macro_export]
-macro_rules! custom_id {
-    ($($name: ident => $untyped: ty),+ $(,)?) => {
+macro_rules! new_type {
+    ($($name: ident => $type: ty),+ $(,)?) => {
         $(
             #[derive(
                 Debug,
@@ -41,24 +44,41 @@ macro_rules! custom_id {
                 Ord,
                 Hash,
                 Default,
-                $crate::macros::import::IntoOwned,
+                $crate::macros::import::Serialize,
+                $crate::macros::import::Deserialize,
+                $crate::macros::import::IntoOwned
             )]
             #[repr(transparent)]
+            #[serde(transparent)]
             pub struct $name {
-                value: $untyped,
+                value: $type,
+            }
+
+            impl $crate::macros::import::fmt::Display for $name {
+                fn fmt(&self, formatter: &mut $crate::macros::import::fmt::Formatter<'_>) -> $crate::macros::import::fmt::Result {
+                    self.get().fmt(formatter)
+                }
             }
 
             impl $name {
-                pub const fn new(value: $untyped) -> Self {
+                pub const fn new(value: $type) -> Self {
                     Self { value }
                 }
 
-                pub const fn get(self) -> $untyped {
+                pub const fn get(self) -> $type {
                     self.value
                 }
             }
+        )+
+    };
+}
 
-            $crate::typed_id!($name);
+#[macro_export]
+macro_rules! custom_id {
+    ($($name: ident => $untyped: ty),+ $(,)?) => {
+        $(
+            $crate::new_type!($name => $untyped);
+            $crate::impl_typed_id!($name);
 
             impl $crate::types::id::CustomId for $name {
                 type Untyped = $untyped;

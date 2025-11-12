@@ -1,9 +1,9 @@
 @0xaea4dea251a81afc;
 
-using import "aliases/id.capnp".Id;
-using import "aliases/size.capnp".Size;
 using import "artist.capnp".Artist;
+using import "id.capnp".Id;
 using import "option.capnp".Option;
+using import "size.capnp".Size;
 
 struct SongReference {
     id @0 :Id;

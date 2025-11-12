@@ -1,6 +1,6 @@
 @0xcaf19768729afafd;
 
-using import "aliases/id.capnp".Id;
+using import "id.capnp".Id;
 
 struct Artist {
     id @0 :Id;

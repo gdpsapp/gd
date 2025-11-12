@@ -1,11 +1,11 @@
 @0xb440d4a7ebbc1e92;
 
-using import "../aliases/color.capnp".Color;
-using import "../aliases/enum.capnp".EnumValue;
-using import "aliases/id.capnp".ColorChannelId;
-using import "aliases/opacity.capnp".Opacity;
-using import "aliases/opacity.capnp".OptionOpacity;
+using import "../color.capnp".Color;
+using import "../values.capnp".EnumValue;
 using import "hsv.capnp".Hsv;
+using import "id.capnp".ColorChannelId;
+using import "opacity.capnp".Opacity;
+using import "opacity.capnp".OptionOpacity;
 
 struct PlayerColorChannelOptions {
     playerColor @0 :EnumValue;

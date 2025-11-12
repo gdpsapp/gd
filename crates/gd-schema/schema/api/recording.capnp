@@ -1,6 +1,6 @@
 @0xf81fbb40b7d6e784;
 
-using import "../aliases/time.capnp".Timestamp;
+using import "../time.capnp".Timestamp;
 
 struct RecordingItem {
     timestamp @0 :Timestamp;

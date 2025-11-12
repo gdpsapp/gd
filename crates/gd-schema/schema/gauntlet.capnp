@@ -1,6 +1,6 @@
 @0xb4afe2f523da20f0;
 
-using import "aliases/id.capnp".Id;
+using import "id.capnp".Id;
 
 struct Gauntlet {
     id @0 :Id;

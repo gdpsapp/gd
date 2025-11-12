@@ -1,6 +1,6 @@
 use capnp::{
     Error,
-    traits::{FromPointerBuilder, FromPointerReader},
+    traits::{FromPointerBuilder, FromPointerReader, Owned},
 };
 
 pub trait FromReader<'a>: Sized {
@@ -12,9 +12,9 @@ pub trait FromReader<'a>: Sized {
 pub trait ToBuilder<'a> {
     type Builder: FromPointerBuilder<'a>;
 
-    fn to_builder(&self, builder: &mut Self::Builder) -> Result<(), Error>;
+    fn to_builder(&self, builder: Self::Builder) -> Result<(), Error>;
 }
 
-pub trait Schema<'a>: FromReader<'a> + ToBuilder<'a> {}
-
-impl<'a, T: FromReader<'a> + ToBuilder<'a>> Schema<'a> for T {}
+pub trait Schema<'a>: FromReader<'a> + ToBuilder<'a> {
+    type Owned: Owned<Reader<'a> = Self::Reader, Builder<'a> = Self::Builder>;
+}

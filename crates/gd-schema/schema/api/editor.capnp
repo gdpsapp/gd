@@ -1,9 +1,9 @@
 @0xabc0efd0406f8f97;
 
-using import "header.capnp".Header;
-using import "object.capnp".AnyObject;
+using import "metadata.capnp".Metadata;
+using import "object.capnp".Object;
 
 struct Editor {
-    header @0 :Header;
-    objects @1 :List(AnyObject);
+    header @0 :Metadata;
+    objects @1 :List(Object);
 }

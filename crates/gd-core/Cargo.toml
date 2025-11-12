@@ -11,6 +11,9 @@ repository.workspace = true
 homepage.workspace = true
 keywords = ["gd", "core"]
 
+[dependencies.bon]
+workspace = true
+
 [dependencies.ownership]
 workspace = true
 

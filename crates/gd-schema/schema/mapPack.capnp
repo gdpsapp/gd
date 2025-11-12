@@ -1,10 +1,10 @@
 @0xf23d96c5f3c74c0d;
 
-using import "aliases/color.capnp".Color;
-using import "aliases/enum.capnp".EnumValue;
-using import "aliases/id.capnp".Id;
-using import "aliases/statistics.capnp".RewardCoins;
-using import "aliases/statistics.capnp".RewardStars;
+using import "color.capnp".Color;
+using import "id.capnp".Id;
+using import "statistics.capnp".RewardCoins;
+using import "statistics.capnp".RewardStars;
+using import "values.capnp".EnumValue;
 
 struct MapPack {
     id @0 :Id;

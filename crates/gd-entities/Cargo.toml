@@ -14,13 +14,16 @@ keywords = ["gd", "entity"]
 [dependencies.bon]
 workspace = true
 
-[dependencies.gd-core]
-workspace = true
-
 [dependencies.serde]
 workspace = true
 
 [dependencies.ownership]
+workspace = true
+
+[dependencies.gd-core]
+workspace = true
+
+[dependencies.gd-enums]
 workspace = true
 
 [package.metadata.docs.rs]

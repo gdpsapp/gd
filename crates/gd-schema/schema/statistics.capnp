@@ -1,6 +1,6 @@
 @0x946ccc954e914685;
 
-using import "../option.capnp".OptionUInt32;
+using import "option.capnp".OptionUInt32;
 
 using Downloads = UInt32;
 

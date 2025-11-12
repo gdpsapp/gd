@@ -11,5 +11,11 @@ repository.workspace = true
 homepage.workspace = true
 keywords = ["gd", "enum", "enumeration"]
 
+[dependencies.ownership]
+workspace = true
+
+[dependencies.serde]
+workspace = true
+
 [package.metadata.docs.rs]
 rustdoc-args = ["--cfg", "docsrs"]

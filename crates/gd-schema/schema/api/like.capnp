@@ -1,8 +1,8 @@
 @0xa64a59e494f00145;
 
-using import "../aliases/enum.capnp".EnumValue;
-using import "../aliases/id.capnp".Id;
-using import "../aliases/id.capnp".OptionId;
+using import "../id.capnp".Id;
+using import "../id.capnp".OptionId;
+using import "../values.capnp".EnumValue;
 
 struct Like {
     type @0 :EnumValue;

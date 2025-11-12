@@ -1,7 +1,7 @@
 @0xbc24b7b4fc694ae9;
 
-using import "aliases/statistics.capnp".Demons;
-using import "aliases/statistics.capnp".Levels;
+using import "statistics.capnp".Demons;
+using import "statistics.capnp".Levels;
 
 struct DemonInfoGroup {
     easy @0 :Demons;

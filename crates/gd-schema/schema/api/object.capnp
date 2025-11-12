@@ -1,32 +1,32 @@
 @0xfb858fb992d10849;
 
-using import "../aliases/color.capnp".Color;
-using import "../aliases/enum.capnp".EnumValue;
-using import "../aliases/flag.capnp".FlagValue;
-using import "../aliases/time.capnp".Duration;
+using import "../color.capnp".Color;
 using import "../option.capnp".Option;
-using import "aliases/count.capnp".Count;
-using import "aliases/geometry.capnp".Modifier;
-using import "aliases/geometry.capnp".Rate;
-using import "aliases/geometry.capnp".Rotation;
-using import "aliases/geometry.capnp".Scale;
-using import "aliases/geometry.capnp".Unit;
-using import "aliases/id.capnp".AnimationId;
-using import "aliases/id.capnp".BlockId;
-using import "aliases/id.capnp".CoinId;
-using import "aliases/id.capnp".ColorChannelId;
-using import "aliases/id.capnp".GroupId;
-using import "aliases/id.capnp".ItemId;
-using import "aliases/id.capnp".ObjectId;
-using import "aliases/id.capnp".LinkId;
-using import "aliases/layer.capnp".EditorLayer;
-using import "aliases/layer.capnp".ZLayer;
-using import "aliases/opacity.capnp".Opacity;
-using import "aliases/opacity.capnp".OptionOpacity;
-using import "aliases/order.capnp".ZOrder;
-using import "aliases/physics.capnp".Speed;
-using import "aliases/physics.capnp".Strength;
+using import "../time.capnp".Duration;
+using import "../values.capnp".EnumValue;
+using import "../values.capnp".FlagValue;
+using import "count.capnp".Count;
+using import "geometry.capnp".Modifier;
+using import "geometry.capnp".Rate;
+using import "geometry.capnp".Rotation;
+using import "geometry.capnp".Scale;
+using import "geometry.capnp".Unit;
 using import "hsv.capnp".Hsv;
+using import "id.capnp".AnimationId;
+using import "id.capnp".BlockId;
+using import "id.capnp".CoinId;
+using import "id.capnp".ColorChannelId;
+using import "id.capnp".GroupId;
+using import "id.capnp".ItemId;
+using import "id.capnp".ObjectId;
+using import "id.capnp".LinkId;
+using import "layer.capnp".EditorLayer;
+using import "layer.capnp".ZLayer;
+using import "opacity.capnp".Opacity;
+using import "opacity.capnp".OptionOpacity;
+using import "order.capnp".ZOrder;
+using import "physics.capnp".Speed;
+using import "physics.capnp".Strength;
 
 struct ObjectTransform {
     hFlipped @0 :Bool;
@@ -347,7 +347,7 @@ struct TriggerOptions {
     }
 }
 
-struct AnyObject {
+struct Object {
     id @0 :ObjectId;
     x @1 :Unit;
     y @2 :Unit;

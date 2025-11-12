@@ -1,10 +1,12 @@
+use std::borrow::Cow;
+
 use capnp::Error;
 use gd_core::types::id::ArtistId;
 use gd_entities::artists::Artist;
 
 use crate::{
     artist_capnp::artist,
-    schema::{FromReader, ToBuilder},
+    schema::{FromReader, Schema, ToBuilder},
 };
 
 impl<'a> FromReader<'a> for Artist<'a> {
@@ -19,7 +21,7 @@ impl<'a> FromReader<'a> for Artist<'a> {
 
         let artist = Self::builder()
             .id(artist_id)
-            .name(name)
+            .name(Cow::Borrowed(name))
             .verified(verified)
             .build();
 
@@ -30,11 +32,15 @@ impl<'a> FromReader<'a> for Artist<'a> {
 impl<'a> ToBuilder<'a> for Artist<'a> {
     type Builder = artist::Builder<'a>;
 
-    fn to_builder(&self, builder: &mut Self::Builder) -> Result<(), Error> {
+    fn to_builder(&self, mut builder: Self::Builder) -> Result<(), Error> {
         builder.set_id(self.id.get());
         builder.set_name(self.name.as_ref());
         builder.set_verified(self.is_verified());
 
         Ok(())
     }
+}
+
+impl<'a> Schema<'a> for Artist<'a> {
+    type Owned = artist::Owned;
 }

@@ -1,29 +1,43 @@
 use std::fmt;
 
 use ownership::IntoOwned;
+use serde::{Deserialize, Serialize};
 use thiserror::Error;
 
-pub type Value = u8;
+use crate::types::time::Duration;
 
-pub const LIMIT: Value = 100;
+pub const LIMIT: u8 = 100;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Error)]
 #[error("invalid percent `{value}`")]
-pub struct Error {
-    value: Value,
+pub struct PercentError {
+    value: u8,
 }
 
-impl Error {
-    pub(crate) const fn new(value: Value) -> Self {
+impl PercentError {
+    pub(crate) const fn new(value: u8) -> Self {
         Self { value }
     }
 
-    pub const fn get(self) -> Value {
+    pub const fn get(self) -> u8 {
         self.value
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default, IntoOwned)]
+#[derive(
+    Debug,
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    PartialOrd,
+    Ord,
+    Hash,
+    Default,
+    Serialize,
+    Deserialize,
+    IntoOwned,
+)]
 pub struct Percent {
     value: u8,
 }
@@ -35,15 +49,15 @@ impl fmt::Display for Percent {
 }
 
 impl Percent {
-    pub const fn try_new(value: Value) -> Result<Self, Error> {
+    pub const fn try_new(value: u8) -> Result<Self, PercentError> {
         if let Some(percent) = Self::new(value) {
             Ok(percent)
         } else {
-            Err(Error::new(value))
+            Err(PercentError::new(value))
         }
     }
 
-    pub const fn new(value: Value) -> Option<Self> {
+    pub const fn new(value: u8) -> Option<Self> {
         if value > LIMIT {
             None
         } else {
@@ -51,24 +65,29 @@ impl Percent {
         }
     }
 
-    pub const unsafe fn new_unchecked(value: Value) -> Self {
+    pub const unsafe fn new_unchecked(value: u8) -> Self {
         Self { value }
     }
 
-    pub const fn get(self) -> Value {
+    pub const fn get(self) -> u8 {
         self.value
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, IntoOwned)]
+#[derive(
+    Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize, IntoOwned,
+)]
+#[serde(rename_all = "snake_case", tag = "type")]
 pub enum Record {
     Percent(Percent),
+    Duration(Duration),
 }
 
 impl fmt::Display for Record {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Self::Percent(percent) => percent.fmt(formatter),
+            Self::Duration(duration) => duration.fmt(formatter),
         }
     }
 }
