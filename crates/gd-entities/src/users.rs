@@ -10,7 +10,7 @@ use gd_core::types::{
         CreatorPoints, Demons, Diamonds, Moons, Place, Rank, SecretCoins, Stars, UserCoins,
     },
     str::Str,
-    time::Timestamp,
+    time::Instant,
 };
 use gd_enums::{comments, icons};
 use ownership::IntoOwned;
@@ -136,7 +136,7 @@ pub struct UserLeaderboard {
     #[builder(default)]
     coins: RewardCoins,
     #[builder(default)]
-    recorded_at: Timestamp,
+    recorded_at: Instant,
 }
 
 #[derive(

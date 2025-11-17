@@ -77,17 +77,8 @@ impl Percent {
 #[derive(
     Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize, IntoOwned,
 )]
-#[serde(rename_all = "snake_case", tag = "type")]
+#[serde(untagged)]
 pub enum Record {
     Percent(Percent),
     Duration(Duration),
-}
-
-impl fmt::Display for Record {
-    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            Self::Percent(percent) => percent.fmt(formatter),
-            Self::Duration(duration) => duration.fmt(formatter),
-        }
-    }
 }

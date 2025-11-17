@@ -11,5 +11,29 @@ repository.workspace = true
 homepage.workspace = true
 keywords = ["gd", "crypto"]
 
+[dependencies.aes]
+workspace = true
+
+[dependencies.base64]
+workspace = true
+
+[dependencies.ecb]
+workspace = true
+
+[dependencies.flate2]
+workspace = true
+
+[dependencies.hex-literal]
+workspace = true
+
+[dependencies.sha1]
+workspace = true
+
+[dependencies.thiserror]
+workspace = true
+
+[dependencies.xor-cipher]
+workspace = true
+
 [package.metadata.docs.rs]
 rustdoc-args = ["--cfg", "docsrs"]

@@ -11,7 +11,7 @@ pub mod values;
 pub mod version;
 
 #[doc(inline)]
-pub use color::{AlphaColor, OpaqueColor};
+pub use color::{AlphaColor, Color, OpaqueColor};
 
 #[doc(inline)]
 pub use id::{AccountId, ArtistId, CustomId, Id, TypedId, UntypedId, UserId};
@@ -35,7 +35,10 @@ pub use statistics::{
 };
 
 #[doc(inline)]
-pub use time::{Duration, Timestamp};
+pub use str::Str;
+
+#[doc(inline)]
+pub use time::Duration;
 
 #[doc(inline)]
 pub use values::{EnumValue, FlagValue};

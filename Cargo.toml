@@ -26,9 +26,6 @@ version = "0.23.0"
 [workspace.dependencies.capnpc]
 version = "0.23.2"
 
-[workspace.dependencies.dtoa]
-version = "1.0.10"
-
 [workspace.dependencies.ecb]
 version = "0.1.2"
 features = ["std"]
@@ -37,15 +34,19 @@ features = ["std"]
 version = "1.1.5"
 features = ["zlib"]
 
-[workspace.dependencies.itoa]
-version = "1.0.15"
+[workspace.dependencies.hex-literal]
+version = "1.1.0"
+
+[workspace.dependencies.jiff]
+version = "0.2.16"
+features = ["serde"]
 
 [workspace.dependencies.miette]
 version = "7.6.0"
 features = ["fancy"]
 
 [workspace.dependencies.ownership]
-version = "0.2.4"
+version = "0.3.0"
 features = ["derive"]
 
 [workspace.dependencies.reqwest]

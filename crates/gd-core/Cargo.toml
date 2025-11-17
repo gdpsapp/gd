@@ -14,6 +14,9 @@ keywords = ["gd", "core"]
 [dependencies.bon]
 workspace = true
 
+[dependencies.jiff]
+workspace = true
+
 [dependencies.ownership]
 workspace = true
 

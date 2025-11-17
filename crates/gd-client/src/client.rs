@@ -5,6 +5,7 @@ use crate::{
     state::{self, State},
 };
 
+#[derive(Debug)]
 pub struct Client<S: State> {
     pub session: Session,
     pub state: S,
